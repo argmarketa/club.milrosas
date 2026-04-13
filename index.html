@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso Exclusivo</title>
+
+  <meta name="facebook-domain-verification" content="qx1zho2wixswe5pr0ill7z3aecxjcp" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700;900&family=Russo+One&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('set', 'autoConfig', false, '1946841772846486');
+    fbq('init', '1946841772846486');
+    fbq('track', 'PageView');
+  </script>
+
+  <style>
+    /* Ocultamos el logo dinámico si no lo quieres como foco central, pero mantenemos el div para que el JS no se rompa */
+    #logoContainer {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-overlay"></div>
+
+  <div class="top-bar-live">
+    <div class="pulsing-dot"></div>
+    <span>JUGANDO EN VIVO: <span id="liveCounter">4568</span>+</span>
+  </div>
+
+  <div class="container-main">
+
+    <div class="card-agresiva">
+
+      <div class="review-box">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="review-text">"Entré con $2000, me pasaron el boni y retiré $15.000 en 10 minutos al MP. Impecables."
+        </p>
+        <span class="user-name">- Carlos P. <span class="verified-badge">✓ VERIFICADO</span></span>
+      </div>
+
+      <div class="hero-titles">
+        <h2 class="title-glow">SENTÍ EL PODER DE GANAR CON NOSOTROS</h2>
+        <p class="subtitle-neon">🎁 TU PREMIO ESTÁ A UN MENSAJE DE DISTANCIA 🎁</p>
+      </div>
+
+      <button class="btn-master" id="whatsappButton">
+        <span>🔥 CREÁ TU USUARIO 🔥</span>
+      </button>
+
+      <div class="boni-separado">
+        <div class="boni-fuego">🔥</div>
+        <div class="boni-texto">¡BONI DEL 50% DISPONIBLE CON TU 1RA CARGA!</div>
+        <div class="boni-fuego">🔥</div>
+      </div>
+
+    </div>
+
+    <div class="trust-badges">
+      <p class="trust-title">RETIROS INMEDIATOS 24/7</p>
+      <div class="iconos-pago">
+        <img src="img/8043680.png" alt="Transferencia">
+        <img src="img/Mercado Pago.png" alt="Mercado Pago">
+        <img src="img/logo-large.png" alt="Banco">
+        <img src="img/logo-cuenta-dni.png" alt="Cuenta DNI">
+      </div>
+    </div>
+
+    <div class="legal-footer">
+      <p>ESTA PLATAFORMA OPERA BAJO LAS LEYES VIGENTES DE ENTRETENIMIENTO Y JUEGOS DE AZAR. JUEGUE CON RESPONSABILIDAD.
+        EXCLUSIVO PARA MAYORES DE 18 AÑOS (+18).</p>
+      <p>Los retiros están sujetos a los términos y condiciones de las pasarelas de pago locales.</p>
+    </div>
+
+  </div>
+
+  <div id="liveToast" class="live-toast">
+    <div class="toast-icon">💰</div>
+    <div class="toast-content">
+      <span class="toast-title">¡Nuevo Retiro Exitoso!</span>
+      <span class="toast-desc"><strong id="toastName">Marcos T.</strong> acaba de retirar <strong id="toastAmount"
+          class="toast-green">$15.000</strong></span>
+    </div>
+  </div>
+
+  <script>
+    const BRANDS = {
+      'imperio': { name: 'IMPERIO ZAFIRO', emoji: '💎', color: '#00ff88' },
+      'rubi': { name: 'IMPERIO RUBÍ', emoji: '❤️', color: '#ff3131' },
+      'default': { name: 'IMPERIO ZAFIRO', emoji: '💎', color: '#00ff88' }
+    };
+
+    function applyBranding() {
+      // Mantenemos la lógica para que no rompa el tracking backend de "marca"
+      const params = new URLSearchParams(window.location.search);
+      const brandKey = params.get('marca') || 'default';
+      const brand = BRANDS[brandKey] || BRANDS['default'];
+      document.title = "ACCESO VIP";
+    }
+    applyBranding();
+
+    let btn;
+
+    function getCookie(name) {
+      const match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
+      return match ? match[2] : "";
+    }
+    function setCookie(name, value) {
+      document.cookie = `${name}=${value}; path=/; max-age=63072000`;
+    }
+    function ensureFBP() {
+      let fbp = getCookie("_fbp");
+      if (!fbp) {
+        fbp = `fb.1.${Date.now()}.${Math.floor(Math.random() * 1e10)}`;
+        setCookie("_fbp", fbp);
+      }
+      return fbp;
+    }
+    function ensureFBC() {
+      const fbclid = new URLSearchParams(window.location.search).get("fbclid");
+      if (!fbclid) return "";
+      const fbc = `fb.1.${Date.now()}.${fbclid}`;
+      setCookie("_fbc", fbc);
+      return fbc;
+    }
+    function generateShortID() {
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let id = "";
+      for (let i = 0; i < 5; i++) id += chars.charAt(Math.floor(Math.random() * chars.length));
+      return id;
+    }
+    function getOrCreateClickID() {
+      const stored = localStorage.getItem("click_id");
+      if (stored) return stored;
+      const id = generateShortID();
+      localStorage.setItem("click_id", id);
+      return id;
+    }
+
+    // Advanced UTM parsing to catch multiple variations
+    function parseUTMs() {
+      const params = new URLSearchParams(window.location.search);
+      let content = params.get('utm_content') || params.get('ad_name') || params.get('ad') || "Organico";
+      let campaign = params.get('utm_campaign') || params.get('campaign_name') || params.get('campaign') || "Desconocido";
+      return { content, campaign };
+    }
+
+    function handleWhatsAppClick(event) {
+      event?.preventDefault?.();
+      if (btn.disabled) return;
+
+      btn.disabled = true;
+      btn.querySelector("span").textContent = "CONECTANDO...";
+
+      // Disparar Contact pixel event antes de redirigir
+      const fbp = ensureFBP();
+      const fbc = ensureFBC();
+      const click_id = getOrCreateClickID();
+      const event_id = "contact-" + click_id;
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {}, { eventID: event_id });
+      }
+
+      // Redirigir al rotador de WhatsApp del cliente
+      window.location.href = "https://milrosasgroup.app/chat";
+    }
+
+    // LÓGICA DE LA LANDING AGRESIVA (Contadores y Notificaciones)
+    document.addEventListener("DOMContentLoaded", () => {
+      btn = document.getElementById("whatsappButton");
+      if (btn) btn.addEventListener("click", handleWhatsAppClick);
+
+      // 1. Variación del número en vivo
+      setInterval(() => {
+        let counter = document.getElementById('liveCounter');
+        let currentVal = parseInt(counter.innerText);
+        let randomChange = Math.floor(Math.random() * 5) - 2;
+        counter.innerText = currentVal + randomChange;
+      }, 3500);
+
+      // 2. Sistema de Notificaciones de Retiros Falsos
+      const nombresRetiro = ["Gastón M.", "Julieta R.", "Martín F.", "Lucía P.", "Diego C.", "Ana B.", "Facundo T.", "Sofía G."];
+      const montosRetiro = ["$15.000", "$42.500", "$8.000", "$120.000", "$35.000", "$60.000", "$22.500", "$95.000"];
+      const toast = document.getElementById("liveToast");
+      const tName = document.getElementById("toastName");
+      const tAmount = document.getElementById("toastAmount");
+
+      function mostrarToast() {
+        const randName = nombresRetiro[Math.floor(Math.random() * nombresRetiro.length)];
+        const randAmount = montosRetiro[Math.floor(Math.random() * montosRetiro.length)];
+        tName.textContent = randName;
+        tAmount.textContent = randAmount;
+
+        toast.classList.add("show");
+
+        // Ocultar después de 4 segundos
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 4000);
+      }
+
+      // Disparar el primer toast a los 3 segundos, luego cada 12 segundos
+      setTimeout(() => {
+        mostrarToast();
+        setInterval(mostrarToast, 12000);
+      }, 3000);
+    });
+  </script>
+</body>
+
+</html>

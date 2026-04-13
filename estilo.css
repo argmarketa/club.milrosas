@@ -1,0 +1,392 @@
+/* ==========================================
+   🔥 CSS AGRESIVO: ALTA CONVERSIÓN 🔥
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Fondo original que despista a Meta */
+  background-image: url('img/fondotrebol.png'); 
+  background-color: #050505;
+  background-size: cover; 
+  background-position: center; 
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.98) 100%);
+  z-index: -1;
+}
+
+.container-main {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+/* --- BARRA SUPERIOR: URGENCIA EN VIVO --- */
+.top-bar-live {
+  width: 100%;
+  background: #0a0a0a;
+  border-bottom: 2px solid #ff0000;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-family: 'Russo One', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+  z-index: 10;
+  position: relative;
+}
+
+.pulsing-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  animation: pulse-red 1s infinite;
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.8); }
+  70% { box-shadow: 0 0 0 12px rgba(255, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+/* --- LA CARTA AGRESIVA --- */
+.card-agresiva {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.15), inset 0 0 30px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+}
+
+/* Brillo superior en la carta */
+.card-agresiva::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff88, transparent);
+  box-shadow: 0 0 20px #00ff88;
+}
+
+/* --- TESTIMONIO (PRUEBA SOCIAL) --- */
+.review-box {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px dashed rgba(255, 215, 0, 0.4);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.05);
+}
+
+.review-box .stars {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  letter-spacing: 3px;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+}
+
+.review-text {
+  font-size: 1rem;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  color: #ffd700;
+  font-weight: 800;
+}
+
+.verified-badge {
+  background: #00ff88;
+  color: #000;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 0.7rem;
+  margin-left: 5px;
+  font-weight: 900;
+}
+
+/* --- TÍTULOS AGRESIVOS --- */
+.hero-titles {
+  text-align: center;
+}
+
+.title-glow {
+  font-family: 'Russo One', sans-serif;
+  font-size: 2.4rem;
+  color: #ffffff;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 30px rgba(0, 255, 136, 0.8), 0 0 50px rgba(0, 255, 136, 0.5);
+  margin-bottom: 15px;
+}
+
+.subtitle-neon {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #00ff88;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- BOTÓN MAESTRO (EL IMÁN DE CLICS) --- */
+.btn-master {
+  width: 100%;
+  background: linear-gradient(135deg, #00ff88, #00b35f, #00ff88);
+  background-size: 200% auto;
+  color: #000000;
+  border: none;
+  border-radius: 50px;
+  padding: 22px 15px;
+  cursor: pointer;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.5), inset 0 -4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  animation: gradient-shift 2s infinite linear, heartbeat-savage 1.2s infinite;
+}
+
+.btn-master span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes heartbeat-savage {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.06); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.04); }
+  70% { transform: scale(1); }
+}
+
+.btn-master:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 255, 136, 0.8);
+  animation: none; /* Se detiene para facilitar el clic */
+}
+
+/* --- EL BONI SEPARADO --- */
+.boni-separado {
+  background: rgba(255, 215, 0, 0.15);
+  border: 2px dashed #ffd700;
+  border-radius: 12px;
+  padding: 12px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  animation: blink-boni 1.5s infinite alternate;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.boni-texto {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #ffd700;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+  letter-spacing: 0.5px;
+}
+
+.boni-fuego {
+  font-size: 1.4rem;
+  animation: fuego-move 1s infinite alternate;
+}
+
+@keyframes blink-boni {
+  0% { border-color: rgba(255, 215, 0, 0.4); background: rgba(255, 215, 0, 0.05); }
+  100% { border-color: rgba(255, 215, 0, 1); background: rgba(255, 215, 0, 0.2); }
+}
+
+@keyframes fuego-move {
+  0% { transform: scale(1) rotate(-5deg); }
+  100% { transform: scale(1.2) rotate(5deg); }
+}
+
+/* --- POPUP NOTIFICACIÓN RETIROS EN VIVO --- */
+.live-toast {
+  position: fixed;
+  bottom: -100px;
+  left: 20px;
+  background: rgba(10, 10, 10, 0.95);
+  border-left: 4px solid #00ff88;
+  border-radius: 8px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(0, 255, 136, 0.2);
+  z-index: 1000;
+  transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 320px;
+}
+
+.live-toast.show {
+  bottom: 20px;
+}
+
+.toast-icon {
+  font-size: 2rem;
+  animation: bounce-icon 2s infinite;
+}
+
+@keyframes bounce-icon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.toast-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.toast-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  color: #aaaaaa;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.toast-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.toast-desc strong {
+  font-weight: 800;
+}
+
+.toast-green {
+  color: #00ff88;
+  font-family: 'Russo One', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* --- MÉTODOS DE PAGO Y FOOTER --- */
+.trust-badges {
+  margin-top: 30px;
+  text-align: center;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.trust-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  color: #aaaaaa;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.iconos-pago {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.iconos-pago img {
+  height: 35px;
+  object-fit: contain;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: all 0.3s;
+}
+
+.iconos-pago img:hover {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.1);
+}
+
+.legal-footer {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.65rem;
+  color: #666666;
+  line-height: 1.5;
+  padding: 0 15px;
+}
+
+.legal-footer p { margin-bottom: 8px; }
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 480px) {
+  .title-glow { font-size: 2.1rem; }
+  .subtitle-neon { font-size: 1rem; }
+  .btn-master span { font-size: 1.4rem; }
+  .boni-texto { font-size: 0.95rem; }
+  .card-agresiva { padding: 25px 15px; gap: 20px; }
+  
+  /* Ajuste del Toast para mobile */
+  .live-toast {
+    left: 5%;
+    width: 90%;
+    max-width: none;
+    padding: 10px 15px;
+  }
+  .live-toast.show {
+    bottom: 15px;
+  }
+}
